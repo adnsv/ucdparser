@@ -9,8 +9,10 @@ import (
 const root = "https://www.unicode.org/Public/UCD/latest/ucd/"
 
 func Example() {
-	url := root + "NamesList.txt"
 
+	// fetch from remote
+
+	url := root + "NamesList.txt"
 	fmt.Printf("Fetching '%s'...", url)
 	resp, err := http.Get(url)
 	if err != nil {
@@ -20,6 +22,8 @@ func Example() {
 		log.Fatalf("Bad GET status for %q: %q", url, resp.Status)
 	}
 	defer resp.Body.Close()
+
+	// parse
 
 	Parse(resp.Body, func(ln *Line) {
 		if len(ln.Fields) == 0 {
