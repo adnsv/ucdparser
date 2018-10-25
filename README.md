@@ -17,8 +17,7 @@ import "github.com/adnsv/ucdparser"
 Package ucdparser is a simple generic parser for
 unicode.org reference tables.
 
-GoDoc reference:
-[![GoDoc](<a href="https://godoc.org/github.com/adnsv/ucdparser?status.svg">https://godoc.org/github.com/adnsv/ucdparser?status.svg</a>)](<a href="https://godoc.org/github.com/adnsv/ucdparser">https://godoc.org/github.com/adnsv/ucdparser</a>)
+![GoDoc](<a href="https://godoc.org/github.com/adnsv/ucdparser?status.svg">https://godoc.org/github.com/adnsv/ucdparser?status.svg</a>)
 
 ## Index
 
