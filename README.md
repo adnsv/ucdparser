@@ -111,7 +111,7 @@ type Line struct {
 
 Line is used as a callback parameter in the Parse func.
 
-### method *Line.<a name='004'>Int</a>
+### method (*Line) <a name='004'>Int</a>
 
 ``` go
 func (ln *Line) Int(i int) (v int)
@@ -119,7 +119,7 @@ func (ln *Line) Int(i int) (v int)
 
 Int parses and returns field i as an integer value.
 
-### method *Line.<a name='005'>Rune</a>
+### method (*Line) <a name='005'>Rune</a>
 
 ``` go
 func (ln *Line) Rune(i int) (r rune)
@@ -127,7 +127,7 @@ func (ln *Line) Rune(i int) (r rune)
 
 Rune reads i-th field as a rune.
 
-### method *Line.<a name='006'>RuneRange</a>
+### method (*Line) <a name='006'>RuneRange</a>
 
 ``` go
 func (ln *Line) RuneRange(i int) (first, last rune)
@@ -135,7 +135,7 @@ func (ln *Line) RuneRange(i int) (first, last rune)
 
 RuneRange interprets and returns field i as a range of runes.
 
-### method *Line.<a name='007'>Runes</a>
+### method (*Line) <a name='007'>Runes</a>
 
 ``` go
 func (ln *Line) Runes(i int) (runes []rune)
@@ -143,7 +143,7 @@ func (ln *Line) Runes(i int) (runes []rune)
 
 Runes interprets and returns field i as a sequence of runes.
 
-### method *Line.<a name='008'>String</a>
+### method (*Line) <a name='008'>String</a>
 
 ``` go
 func (ln *Line) String(i int) (v string)
@@ -151,7 +151,7 @@ func (ln *Line) String(i int) (v string)
 
 String returns field i as a string value.
 
-### method *Line.<a name='009'>Uint</a>
+### method (*Line) <a name='009'>Uint</a>
 
 ``` go
 func (ln *Line) Uint(i int) (v uint)
