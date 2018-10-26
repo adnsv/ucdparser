@@ -3,7 +3,6 @@ package ucdparser
 import (
 	"fmt"
 	"log"
-	"net/http"
 )
 
 const root = "https://www.unicode.org/Public/UCD/latest/ucd/"
@@ -14,18 +13,15 @@ func Example() {
 
 	url := root + "NamesList.txt"
 	fmt.Printf("Fetching '%s'...", url)
-	resp, err := http.Get(url)
+	data, err := Fetch(url)
 	if err != nil {
-		log.Fatalf("HTTP GET: %v", err)
+		log.Fatal(err)
 	}
-	if resp.StatusCode != 200 {
-		log.Fatalf("Bad GET status for %q: %q", url, resp.Status)
-	}
-	defer resp.Body.Close()
+	defer data.Close()
 
 	// parse
 
-	Parse(resp.Body, func(ln *Line) {
+	Parse(data, func(ln *Line) {
 		if len(ln.Fields) == 0 {
 			fmt.Println("#", ln.Comment)
 		} else {
