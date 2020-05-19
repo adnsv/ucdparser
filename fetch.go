@@ -9,10 +9,11 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
-// Fetch fetches a file from a remote location.
-func Fetch(url string) (io.ReadCloser, error) {
+// FetchURL fetches a file from a remote location.
+func FetchURL(url string) (io.ReadCloser, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("HTTP GET: %v", err)
@@ -23,6 +24,20 @@ func Fetch(url string) (io.ReadCloser, error) {
 		return nil, err
 	}
 	return resp.Body, nil
+}
+
+// FetchFile opens local file
+func FetchFile(filename string) (io.ReadCloser, error) {
+	f, err := os.Open(filename)
+	return f, err
+}
+
+// Fetch opens url or local file, depending on location prefix
+func Fetch(location string) (io.ReadCloser, error) {
+	if strings.HasPrefix(location, "http:") || strings.HasPrefix(location, "https:") {
+		return FetchURL(location)
+	}
+	return FetchFile(location)
 }
 
 // FetchCached obtains content from local file (cache)
